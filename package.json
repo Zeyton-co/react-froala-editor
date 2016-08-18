@@ -1,0 +1,41 @@
+{
+  "name": "react-froala-editor",
+  "version": "1.0.0",
+  "description": "React Froala Editor -  React component",
+  "main": "lib/index.js",
+  "jsnext:main": "es6/index.js",
+  "files": [
+    "css",
+    "es6",
+    "lib",
+    "umd"
+  ],
+  "scripts": {
+    "build": "nwb build",
+    "clean": "nwb clean",
+    "start": "nwb serve",
+    "test": "nwb test",
+    "test:watch": "nwb test --server",
+    "deploy": "gh-pages -d demo/dist"
+  },
+  "dependencies": {
+  },
+  "peerDependencies": {
+    "react": "15.x"
+  },
+  "devDependencies": {
+    "gh-pages": "^0.11.0",
+    "nwb": "0.11.x",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0"
+  },
+  "author": "Goncalo Margalho <g@margalho.info>",
+  "homepage": "https://dripr.io",
+  "license": "MIT",
+  "repository": "https://github.com/DevAlien/react-froala-editor",
+  "keywords": [
+    "react-component",
+    "froala",
+    "froala-editor"
+  ]
+}
