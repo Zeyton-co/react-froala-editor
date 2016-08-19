@@ -19,7 +19,11 @@ See the [live demo].
 
 Quick start
 -----------
-1. Use straight away:
+1. Install component
+
+It is like installing any other editor `npm install react-froala-editor`
+
+2. Use straight away:
 
     ~~~jsx
     var React = require('react');
@@ -38,7 +42,7 @@ Quick start
     });
     ~~~
 
-2. Set a base for your froala files
+3. Set a base for your froala files
 
 In this repository we do not include any froala file, it is up to you to have them served.
 
