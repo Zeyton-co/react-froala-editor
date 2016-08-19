@@ -122,7 +122,7 @@ All the available plugins of Froala are available here in this componente and ar
 
 ### Methods
 
-If you have [a ref to a ReactFloaraEditor node](https://facebook.github.io/react/docs/more-about-refs.html), see example below.
+If you have [a ref to a ReactFroalaEditor node](https://facebook.github.io/react/docs/more-about-refs.html), see example below.
 
 
 You will be able to invoke the following methods:
