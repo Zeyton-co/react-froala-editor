@@ -65,7 +65,7 @@ Froala is a very customizable editor and to do so you can pass a json of configu
         );
       }
     });
-    ~~~
+  ~~~
 
 All this configurations can be see at: https://www.froala.com/wysiwyg-editor/docs/options
 
