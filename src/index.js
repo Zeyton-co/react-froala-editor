@@ -11,8 +11,19 @@ export default class Editor extends React.Component {
     this.baseJS = this.base + '/js/plugins/';
     this.baseCSS = this.base + '/css/plugins/';
     this.baseId = props.baseId || 'froala-editor';
-    this.loadJquery = props.loadJquery || true;
-    this.loadFA = props.loadFA || true;
+    this.loadJquery = props.loadJquery != undefined ? props.loadJquery : true;
+    this.loadFA = props.loadFA != undefined ? props.loadFA : true;
+    
+  }
+  
+  scriptAlreadyLoaded(id) {
+    
+      var element = document.getElementById("froala-editor-js-" + id);
+      if(element) {
+        return true;
+      } 
+      
+      return false;
     
   }
 
@@ -58,23 +69,57 @@ export default class Editor extends React.Component {
   }
 
   loadFroalaJS() {
-    if (this.loadJquery) {
+    
+    if(this.scriptAlreadyLoaded(['feditor'])) {
+      
+      this.loadPlugins();
+          this.setState({jsLoaded: true}, () => {
+            
+            $(() => {
+              $('#edit').froalaEditor(this.props.config || {});
+              this.setState({visible: true});
+            });
+          });
+      
+    } else {
+      
+      
+      if (this.loadJquery) {
       this.loadJS('//cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js', 'a', () => {
         this.loadJS(this.base + '/js/froala_editor.min.js', 'feditor', () => {
           this.loadPlugins();
           this.setState({jsLoaded: true}, () => {
             
             $(() => {
-              $('#edit').froalaEditor(this.props.options || {});
+              $('#edit').froalaEditor(this.props.config || {});
               this.setState({visible: true});
             });
           });
         });
       });
+    } else {
+      
+       this.loadJS(this.base + '/js/froala_editor.min.js', 'feditor', () => {
+          this.loadPlugins();
+          this.setState({jsLoaded: true}, () => {
+            
+            $(() => {
+              $('#edit').froalaEditor(this.props.config || {});
+              this.setState({visible: true});
+            });
+          });
+        });
+      
     }
+      
+      
+    }
+    
+    
   }
 
   loadPlugins() {
+    
     if (this.props.imageP || this.props.imageManagerP) {
       this.loadJS(this.baseJS + 'image.min.js', 'fimage', () => {
         if (this.props.imageManagerP) {
